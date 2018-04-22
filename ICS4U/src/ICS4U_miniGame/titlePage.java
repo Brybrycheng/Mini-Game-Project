@@ -9,12 +9,15 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.awt.event.ActionEvent;
 
 public class titlePage extends JFrame {
@@ -54,8 +57,15 @@ public class titlePage extends JFrame {
 		JButton btnPlay = new JButton("Play");
 		btnPlay.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				gamePage play = new gamePage();
-				play.setVisible(true);
+				try {
+					String getName = textField.getText();
+					gamePage play = new gamePage();
+					play.setVisible(true);
+				}
+				catch (Exception a) {
+					JOptionPane.showMessageDialog(null, "Invalid input.");
+				}
+
 			}
 		});
 		
