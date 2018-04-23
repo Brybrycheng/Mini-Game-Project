@@ -25,7 +25,7 @@ public class titlePage extends JFrame {
 	String getName;
 	
 	private JPanel contentPane;
-	private JTextField textField;
+	private JTextField nameField;
 
 	/**
 	 * Launch the application.
@@ -59,20 +59,17 @@ public class titlePage extends JFrame {
 		JButton btnPlay = new JButton("Play");
 		btnPlay.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				try {
-					getName = textField.getText();
-					gamePage play = new gamePage();
-					play.setVisible(true);
-				}
-				catch (Exception a) {
-					JOptionPane.showMessageDialog(null, "Invalid input.");
-				}
+				
+				//doesn't work to set player name to input
+				getName = nameField.getText();
+				gamePage play = new gamePage();
+				play.setVisible(true);
 
 			}
 		});
 		
-		textField = new JTextField();
-		textField.setColumns(10);
+		nameField = new JTextField();
+		nameField.setColumns(10);
 		
 		
 		JTextArea txtrInstructions = new JTextArea();
@@ -86,6 +83,17 @@ public class titlePage extends JFrame {
 		
 		JLabel lblBlackjack = new JLabel("BlackJack");
 		lblBlackjack.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		
+		JButton btnSaveName = new JButton("Save Name");
+		btnSaveName.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					getName = nameField.getText();
+				}	catch(Exception q) {
+					JOptionPane.showMessageDialog(null, "Error!");
+				}
+			}
+		});
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.TRAILING)
@@ -95,14 +103,16 @@ public class titlePage extends JFrame {
 							.addGap(180)
 							.addComponent(lblEnterYourName, GroupLayout.PREFERRED_SIZE, 168, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(152)
-							.addComponent(textField, GroupLayout.PREFERRED_SIZE, 220, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(209)
-							.addComponent(btnPlay, GroupLayout.PREFERRED_SIZE, 99, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGap(83)
-							.addComponent(txtrInstructions, GroupLayout.PREFERRED_SIZE, 382, GroupLayout.PREFERRED_SIZE)))
+							.addComponent(txtrInstructions, GroupLayout.PREFERRED_SIZE, 382, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(152)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
+								.addGroup(gl_contentPane.createSequentialGroup()
+									.addComponent(btnSaveName, GroupLayout.PREFERRED_SIZE, 99, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+									.addComponent(btnPlay, GroupLayout.PREFERRED_SIZE, 99, GroupLayout.PREFERRED_SIZE))
+								.addComponent(nameField, GroupLayout.PREFERRED_SIZE, 220, GroupLayout.PREFERRED_SIZE))))
 					.addContainerGap(75, Short.MAX_VALUE))
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addContainerGap(207, Short.MAX_VALUE)
@@ -119,9 +129,11 @@ public class titlePage extends JFrame {
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(lblEnterYourName, GroupLayout.PREFERRED_SIZE, 54, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(textField, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE)
+					.addComponent(nameField, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addComponent(btnPlay, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addComponent(btnPlay, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnSaveName, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE))
 					.addGap(18))
 		);
 		contentPane.setLayout(gl_contentPane);

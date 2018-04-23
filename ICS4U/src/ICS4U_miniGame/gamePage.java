@@ -67,7 +67,7 @@ public class gamePage extends titlePage {
 		
 		JLabel lblPlayer = new JLabel("Player");
 		lblPlayer.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblPlayer.setText(getName);
+		//lblPlayer.setText(getName);
 		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
