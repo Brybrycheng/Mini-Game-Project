@@ -22,11 +22,15 @@ public class gameOver extends gamePage {
 	public static void main(String[] args) {
 		try {
 			gameOver dialog = new gameOver();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setDefaultCloseOperation(JDialog.EXIT_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public void closeFrame() {
+		super.dispose();
 	}
 
 	/**
@@ -36,6 +40,11 @@ public class gameOver extends gamePage {
 		setBounds(100, 100, 450, 300);
 		
 		JButton btnPlayAgain = new JButton("Play Again");
+		btnPlayAgain.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				closeFrame();
+			}
+		});
 		
 		JButton btnQuit = new JButton("Quit");
 		btnQuit.addActionListener(new ActionListener() {
