@@ -42,6 +42,7 @@ public class titlePage extends JFrame {
 		});
 	}
 	
+	//creates and shuffles deck
 	public static void makeCardList(ArrayList<Integer> myList) {
 		myList.clear();
 		for (int i = 0; i < 4; i ++) {
@@ -53,6 +54,13 @@ public class titlePage extends JFrame {
 			myList.add(10);
 		}
 		Collections.shuffle(myList);
+	}
+	
+	//takes a card out of the deck
+	public static int takeCard(ArrayList<Integer> myList) {
+		int card = myList.get(0);
+		myList.remove(myList.get(0));
+		return card;
 	}
 
 	/**
