@@ -74,13 +74,18 @@ public class titlePage extends JFrame {
 		
 		
 		JTextArea txtrInstructions = new JTextArea();
-		txtrInstructions.setText("Instructions");
-		
+		//txtrInstructions.setText("");
+		txtrInstructions.append("The goal is to get as close to 21 as possible without exceeding it. \n \n");	
+		txtrInstructions.append("All cards are worth their face value, except for aces which can be worth \n");
+		txtrInstructions.append("1 or 11 and face cards which are all worth 10 \n \n");
+		txtrInstructions.append("Press hit to receive more cards or stay if you're satisfied with your total. \n \n");
+		txtrInstructions.append("A total of 21 is a BLACKJACK and you automatically win \n \n");
+		txtrInstructions.append("The closer one to 21 wins!");
 		JLabel lblBlackjack = new JLabel("BlackJack");
 		lblBlackjack.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
+			gl_contentPane.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPane.createSequentialGroup()
@@ -93,10 +98,10 @@ public class titlePage extends JFrame {
 							.addGap(209)
 							.addComponent(btnPlay, GroupLayout.PREFERRED_SIZE, 99, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(103)
-							.addComponent(txtrInstructions, GroupLayout.PREFERRED_SIZE, 330, GroupLayout.PREFERRED_SIZE)))
-					.addContainerGap(107, Short.MAX_VALUE))
-				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+							.addGap(83)
+							.addComponent(txtrInstructions, GroupLayout.PREFERRED_SIZE, 382, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap(75, Short.MAX_VALUE))
+				.addGroup(gl_contentPane.createSequentialGroup()
 					.addContainerGap(207, Short.MAX_VALUE)
 					.addComponent(lblBlackjack)
 					.addGap(205))
@@ -106,7 +111,7 @@ public class titlePage extends JFrame {
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addContainerGap()
 					.addComponent(lblBlackjack)
-					.addPreferredGap(ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
 					.addComponent(txtrInstructions, GroupLayout.PREFERRED_SIZE, 167, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(lblEnterYourName, GroupLayout.PREFERRED_SIZE, 54, GroupLayout.PREFERRED_SIZE)
