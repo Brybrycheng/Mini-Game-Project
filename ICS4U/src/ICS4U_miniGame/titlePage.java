@@ -81,6 +81,8 @@ public class titlePage extends JFrame {
 		txtrInstructions.append("Press hit to receive more cards or stay if you're satisfied with your total. \n \n");
 		txtrInstructions.append("A total of 21 is a BLACKJACK and you automatically win \n \n");
 		txtrInstructions.append("The closer one to 21 wins!");
+		
+		
 		JLabel lblBlackjack = new JLabel("BlackJack");
 		lblBlackjack.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
