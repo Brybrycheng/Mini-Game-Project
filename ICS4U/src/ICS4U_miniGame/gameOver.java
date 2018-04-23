@@ -28,10 +28,6 @@ public class gameOver extends gamePage {
 			e.printStackTrace();
 		}
 	}
-	
-	public void closeFrame() {
-		super.dispose();
-	}
 
 	/**
 	 * Create the dialog.

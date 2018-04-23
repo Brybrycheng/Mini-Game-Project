@@ -59,6 +59,8 @@ public class gamePage extends titlePage {
 		JButton btnStay = new JButton("Stay");
 		btnStay.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				gameOver end = new gameOver();
+				end.setVisible(true);
 			}
 		});
 		
@@ -67,7 +69,6 @@ public class gamePage extends titlePage {
 		
 		JLabel lblPlayer = new JLabel("Player");
 		lblPlayer.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		//lblPlayer.setText(getName);
 		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(

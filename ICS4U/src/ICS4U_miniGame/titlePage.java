@@ -22,6 +22,10 @@ import java.awt.event.ActionEvent;
 import java.util.*;
 public class titlePage extends JFrame {
 	
+	public void closeFrame() {
+		super.dispose();
+	}
+	
 	String getName;		
 	private JPanel contentPane;
 	private JTextField nameField;
@@ -42,7 +46,6 @@ public class titlePage extends JFrame {
 		});
 	}
 	
-	//creates and shuffles deck
 	public static void makeCardList(ArrayList<Integer> myList) {
 		myList.clear();
 		for (int i = 0; i < 4; i ++) {
@@ -54,13 +57,6 @@ public class titlePage extends JFrame {
 			myList.add(10);
 		}
 		Collections.shuffle(myList);
-	}
-	
-	//takes a card out of the deck
-	public static int takeCard(ArrayList<Integer> myList) {
-		int card = myList.get(0);
-		myList.remove(myList.get(0));
-		return card;
 	}
 
 	/**
@@ -85,6 +81,8 @@ public class titlePage extends JFrame {
 				getName = nameField.getText();
 				gamePage play = new gamePage();
 				play.setVisible(true);
+				closeFrame();
+				
 
 			}
 		});
@@ -96,8 +94,8 @@ public class titlePage extends JFrame {
 		JTextArea txtrInstructions = new JTextArea();
 		//instructions
 		txtrInstructions.append("The goal is to get as close to 21 as possible without exceeding it. \n \n");	
-		txtrInstructions.append("All cards are worth their face value, except for aces which can be worth \n");
-		txtrInstructions.append("1 or 11 and face cards which are all worth 10 \n \n");
+		txtrInstructions.append("All cards are worth their face value, except for aces which are worth 1\n");
+		txtrInstructions.append("and face cards which are all worth 10 \n \n");
 		txtrInstructions.append("Press hit to receive more cards or stay if you're satisfied with your total. \n \n");
 		txtrInstructions.append("A total of 21 is a BLACKJACK and you automatically win \n \n");
 		txtrInstructions.append("The closer one to 21 wins!");
