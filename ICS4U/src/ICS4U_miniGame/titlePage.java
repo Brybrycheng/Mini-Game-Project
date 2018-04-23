@@ -21,7 +21,9 @@ import java.io.IOException;
 import java.awt.event.ActionEvent;
 
 public class titlePage extends JFrame {
-
+	
+	String getName;
+	
 	private JPanel contentPane;
 	private JTextField textField;
 
@@ -58,7 +60,7 @@ public class titlePage extends JFrame {
 		btnPlay.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					String getName = textField.getText();
+					getName = textField.getText();
 					gamePage play = new gamePage();
 					play.setVisible(true);
 				}
@@ -74,14 +76,13 @@ public class titlePage extends JFrame {
 		
 		
 		JTextArea txtrInstructions = new JTextArea();
-		//txtrInstructions.setText("");
+		//instructions
 		txtrInstructions.append("The goal is to get as close to 21 as possible without exceeding it. \n \n");	
 		txtrInstructions.append("All cards are worth their face value, except for aces which can be worth \n");
 		txtrInstructions.append("1 or 11 and face cards which are all worth 10 \n \n");
 		txtrInstructions.append("Press hit to receive more cards or stay if you're satisfied with your total. \n \n");
 		txtrInstructions.append("A total of 21 is a BLACKJACK and you automatically win \n \n");
 		txtrInstructions.append("The closer one to 21 wins!");
-		
 		
 		JLabel lblBlackjack = new JLabel("BlackJack");
 		lblBlackjack.setFont(new Font("Tahoma", Font.PLAIN, 30));
