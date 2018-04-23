@@ -19,11 +19,10 @@ import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.awt.event.ActionEvent;
-
+import java.util.*;
 public class titlePage extends JFrame {
 	
-	String getName;
-	
+	String getName;		
 	private JPanel contentPane;
 	private JTextField nameField;
 
@@ -42,10 +41,24 @@ public class titlePage extends JFrame {
 			}
 		});
 	}
+	
+	public static void makeCardList(ArrayList<Integer> myList) {
+		myList.clear();
+		for (int i = 0; i < 4; i ++) {
+			for (int n = 1; n < 10; n++) {
+				myList.add(n);
+			}
+		}
+		for (int x = 0; x < 16; x ++) {
+			myList.add(10);
+		}
+		Collections.shuffle(myList);
+	}
 
 	/**
 	 * Create the frame.
 	 */
+	
 	public titlePage() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 566, 457);
