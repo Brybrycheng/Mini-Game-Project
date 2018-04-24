@@ -49,6 +49,7 @@ public class titlePage extends JFrame {
 		});
 	}
 	
+	//makes and shuffles deck of cards
 	public static void makeCardList(ArrayList<Integer> myList) {
 		myList.clear();
 		for (int i = 0; i < 4; i ++) {
@@ -62,12 +63,14 @@ public class titlePage extends JFrame {
 		Collections.shuffle(myList);
 	}
 	
+	//selects and removes card from deck
 	public static int takeCard(ArrayList<Integer> myList) {
 		int card = myList.get(0);
 		myList.remove(myList.get(0));
 		return card;
 	}
 	
+	//add cards in player and dealer hands
 	public static int addCards(ArrayList<Integer> myList) {
 		int total = 0;
 		for (int i = 0; i < myList.size(); i ++) {

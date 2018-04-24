@@ -47,14 +47,14 @@ public class gamePage extends titlePage {
 		setContentPane(contentPane);
 		
 		JTextArea dealerTxt = new JTextArea();
-		//dealerTxt.append("The dealer has a " + dealerHand.get(0) + "and another card");
+		dealerTxt.append("The dealer has a " + dealerHand.get(0) + "and another card");
 
 		
 		JTextArea playerTxt = new JTextArea();
 		System.out.println(playerHand);
-		/*for (int i = 0; i < playerHand.size(); i ++) {
+		for (int i = 0; i < playerHand.size(); i ++) {
 			playerTxt.append("You have a " + playerHand.get(i) + "\n");
-		}*/
+		}
 		
 		
 		JButton btnHit = new JButton("Hit");
