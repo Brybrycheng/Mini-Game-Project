@@ -47,7 +47,7 @@ public class gamePage extends titlePage {
 		setContentPane(contentPane);
 		
 		JTextArea dealerTxt = new JTextArea();
-		dealerTxt.append("The dealer has a " + dealerHand.get(0) + "and another card");
+		dealerTxt.append("The dealer has a " + dealerHand.get(0) + " and another hidden card");
 
 		
 		JTextArea playerTxt = new JTextArea();
@@ -60,12 +60,20 @@ public class gamePage extends titlePage {
 		JButton btnHit = new JButton("Hit");
 		btnHit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				playerHand.add(takeCard(deck));
+				if (addCards(playerHand) > 21) {
+					//gameOver page, player loses
+				}
 			}
 		});
 		
 		JButton btnStay = new JButton("Stay");
 		btnStay.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				//dealer turn starts
+				if (addCards(dealerHand) < 16) {
+					dealerHand.add(takeCard(deck));
+				}
 				gameOver end = new gameOver();
 				end.setVisible(true);
 			}
