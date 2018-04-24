@@ -56,7 +56,7 @@ public class gamePage extends titlePage {
 			playerTxt.append("You have a " + playerHand.get(i) + "\n");
 		}
 		
-		
+		//hit button
 		JButton btnHit = new JButton("Hit");
 		btnHit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -67,12 +67,20 @@ public class gamePage extends titlePage {
 			}
 		});
 		
+		//stay button
 		JButton btnStay = new JButton("Stay");
 		btnStay.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//dealer turn starts
 				if (addCards(dealerHand) < 16) {
 					dealerHand.add(takeCard(deck));
+				}	else if (addCards(dealerHand) == 21) {
+					//go to gameOver page and dealer wins
+				}	else if (addCards(dealerHand) > 21) {
+					//go to gameOver page and player wins
+				}	else {
+					//code for comparing dealerHand and playerHand-- will add later (bryan)
+					//send to gameOver screen
 				}
 				gameOver end = new gameOver();
 				end.setVisible(true);
