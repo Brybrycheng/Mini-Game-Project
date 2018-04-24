@@ -1,7 +1,7 @@
 fellas do i needa include me algorith for thi s part or
+also just finishing up dealers+users hand classes fellas
 
-
-
+import java.util.Scanner;
 
 public class Blackjack {
 	static boolean playBlackjac() {
@@ -43,18 +43,53 @@ public class Blackjack {
 				System.out.println(userHand.getCard(i));
 			System.out.println("Your total is " + userHand.getBlackjackValue());
 			System.out.println("Dealer is showing the " + dealerHand.getCard(0));
+			//System.out.println("Hit (H) or Stand (S)? " );
+			Scanner scanner = new Scanner(System.in);
 			System.out.println("Hit (H) or Stand (S)? " );
-			char userAction
-			do {
-				userAction=Character.toUpperCase(System.getlnChar());
+			String input = scanner.nextLine();
+			if (input=="H") {
+				Card newCard=deck.dealCard();
+				userHand.addCard(newCard);
+				System.out.println("Your next card is the " +newCard);
+				System.out.println("Your total is now "+userHand.getBlackjackValue());
+				if (userHand.getBlackjackvalue()>21) {
+					System.out.println("Busted!");
+					System.out.println("Dealer's other card is the " + dealerHand.getCard(1)); //if user busts
+					return false;
+				}
+				
+			}
+			if (input=="S") {
+				break;
+				
+			}
+		}	
+		System.out.println("User stands");
+		System.out.println("dealer's cards are " + dealerHand.getCard(0) + dealerHand.getCard(1));
+		while (dealerHand.getBlackjackValue()<=16) {
+			Card newCard = deck.dealCard();
+			System.out.println("Dealer hits and gets the " +newCard);
+			dealerHand.addCard(newCard);
+			if (dealerHand.getBlackjackValue()>21) {
+				System.out.println("dealer busts); you win");
+				return true;
 			}
 			
-			
-			
 		}
-				
-	}
-
+		System.out.println("Dealer's total is "+dealerHand.getBlackjackValue());
+		if (dealerHand.getBlackjackValue()==userHand.getBlackjackvalue()) {
+			System.out.println("dealer wins on a tie");
+			return false;
+		}
+		else if (dealerHand.getBlackjackValue()>userHand.getBlackjackValue()) {
+			System.out.println("dealer wins. dealer's total is " 
+					+dealerHand.getBlackjackValue());
+			return false;			
+		}
+		else {
+			System.out.println("you win. your total is " +userHand.getBlackjackValue());
+			return true;
+		}
 	
-	
+	}	
 }
