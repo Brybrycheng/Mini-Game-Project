@@ -25,6 +25,9 @@ public class titlePage extends JFrame {
 	public void closeFrame() {
 		super.dispose();
 	}
+	ArrayList<Integer> deck = new ArrayList<Integer>();
+	public static ArrayList<Integer> dealerHand = new ArrayList<Integer>();
+	public static ArrayList<Integer> playerHand = new ArrayList<Integer>();
 	
 	String getName;		
 	private JPanel contentPane;
@@ -58,10 +61,26 @@ public class titlePage extends JFrame {
 		}
 		Collections.shuffle(myList);
 	}
+	
+	public static int takeCard(ArrayList<Integer> myList) {
+		int card = myList.get(0);
+		myList.remove(myList.get(0));
+		return card;
+	}
+	
+	public static int addCards(ArrayList<Integer> myList) {
+		int total = 0;
+		for (int i = 0; i < myList.size(); i ++) {
+			total += myList.get(i);
+		}
+		return total;
+	}
 
 	/**
 	 * Create the frame.
 	 */
+	
+	
 	
 	public titlePage() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -76,7 +95,11 @@ public class titlePage extends JFrame {
 		JButton btnPlay = new JButton("Play");
 		btnPlay.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+				makeCardList(deck);
+				for (int i = 0; i < 2; i ++) {
+					dealerHand.add(takeCard(deck));
+					playerHand.add(takeCard(deck));
+				}
 				//doesn't work to set player name to input
 				getName = nameField.getText();
 				gamePage play = new gamePage();

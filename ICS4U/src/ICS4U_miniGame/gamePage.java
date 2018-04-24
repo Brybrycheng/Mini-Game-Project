@@ -46,9 +46,16 @@ public class gamePage extends titlePage {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
-		JTextArea textArea_Dealer = new JTextArea();
+		JTextArea dealerTxt = new JTextArea();
+		//dealerTxt.append("The dealer has a " + dealerHand.get(0) + "and another card");
+
 		
-		JTextArea textArea_Player = new JTextArea();
+		JTextArea playerTxt = new JTextArea();
+		System.out.println(playerHand);
+		/*for (int i = 0; i < playerHand.size(); i ++) {
+			playerTxt.append("You have a " + playerHand.get(i) + "\n");
+		}*/
+		
 		
 		JButton btnHit = new JButton("Hit");
 		btnHit.addActionListener(new ActionListener() {
@@ -72,24 +79,24 @@ public class gamePage extends titlePage {
 		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.TRAILING)
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGap(27)
-							.addComponent(textArea_Dealer, GroupLayout.PREFERRED_SIZE, 221, GroupLayout.PREFERRED_SIZE))
+							.addComponent(dealerTxt, GroupLayout.PREFERRED_SIZE, 221, GroupLayout.PREFERRED_SIZE))
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGap(85)
 							.addComponent(btnHit, GroupLayout.PREFERRED_SIZE, 109, GroupLayout.PREFERRED_SIZE)))
 					.addPreferredGap(ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
-							.addComponent(textArea_Player, GroupLayout.PREFERRED_SIZE, 221, GroupLayout.PREFERRED_SIZE)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addComponent(playerTxt, GroupLayout.PREFERRED_SIZE, 221, GroupLayout.PREFERRED_SIZE)
 							.addGap(31))
-						.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+						.addGroup(gl_contentPane.createSequentialGroup()
 							.addComponent(btnStay, GroupLayout.PREFERRED_SIZE, 107, GroupLayout.PREFERRED_SIZE)
 							.addGap(91))))
-				.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
+				.addGroup(gl_contentPane.createSequentialGroup()
 					.addGap(106)
 					.addComponent(lblDealer)
 					.addPreferredGap(ComponentPlacement.RELATED, 211, Short.MAX_VALUE)
@@ -105,15 +112,14 @@ public class gamePage extends titlePage {
 						.addComponent(lblPlayer))
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(textArea_Player, GroupLayout.PREFERRED_SIZE, 261, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textArea_Dealer, GroupLayout.PREFERRED_SIZE, 261, GroupLayout.PREFERRED_SIZE))
+						.addComponent(playerTxt, GroupLayout.PREFERRED_SIZE, 261, GroupLayout.PREFERRED_SIZE)
+						.addComponent(dealerTxt, GroupLayout.PREFERRED_SIZE, 261, GroupLayout.PREFERRED_SIZE))
 					.addGap(31)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 						.addComponent(btnHit, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)
 						.addComponent(btnStay, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(13, Short.MAX_VALUE))
+					.addContainerGap(32, Short.MAX_VALUE))
 		);
 		contentPane.setLayout(gl_contentPane);
 	}
-
 }
