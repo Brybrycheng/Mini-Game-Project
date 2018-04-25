@@ -1,3 +1,5 @@
+//THESE FILES WERE UNUSED AND RENAMED
+
 package ICS4U_miniGame;
 
 import java.awt.BorderLayout;
