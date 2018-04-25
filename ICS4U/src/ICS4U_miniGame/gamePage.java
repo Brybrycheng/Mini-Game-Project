@@ -47,7 +47,7 @@ public class gamePage extends titlePage {
 		setContentPane(contentPane);
 		
 		JTextArea dealerTxt = new JTextArea();
-		dealerTxt.append("The dealer has a " + dealerHand.get(0) + " and another hidden card");
+		dealerTxt.append("The dealer has a " + dealerHand.get(0) + " \nand another hidden card");
 
 		
 		JTextArea playerTxt = new JTextArea();
@@ -56,6 +56,9 @@ public class gamePage extends titlePage {
 			playerTxt.append("You have a " + playerHand.get(i) + "\n");
 		}
 		
+		gameOver_DealerWins winnerDealer = new gameOver_DealerWins();
+		gameOver_PlayerWins winnerPlayer = new gameOver_PlayerWins();
+		
 		//hit button
 		JButton btnHit = new JButton("Hit");
 		btnHit.addActionListener(new ActionListener() {
@@ -63,7 +66,6 @@ public class gamePage extends titlePage {
 				playerHand.add(takeCard(deck));
 				if (addCards(playerHand) > 21) {
 					//gameOver page, player loses
-					gameOver_DealerWins winnerDealer = new gameOver_DealerWins();
 					winnerDealer.setVisible(true);
 				}
 			}
@@ -78,11 +80,9 @@ public class gamePage extends titlePage {
 					dealerHand.add(takeCard(deck));
 				}	else if (addCards(dealerHand) == 21) {
 					//go to gameOver page and dealer wins
-					gameOver_DealerWins winnerDealer = new gameOver_DealerWins();
 					winnerDealer.setVisible(true);
 				}	else if (addCards(dealerHand) > 21) {
 					//go to gameOver page and player wins
-					gameOver_PlayerWins winnerPlayer = new gameOver_PlayerWins();
 					winnerPlayer.setVisible(true);
 				}	else {
 					//code for comparing dealerHand and playerHand-- will add later (bryan)
