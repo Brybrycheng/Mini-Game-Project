@@ -63,6 +63,8 @@ public class gamePage extends titlePage {
 				playerHand.add(takeCard(deck));
 				if (addCards(playerHand) > 21) {
 					//gameOver page, player loses
+					gameOver_DealerWins winnerDealer = new gameOver_DealerWins();
+					winnerDealer.setVisible(true);
 				}
 			}
 		});
@@ -76,14 +78,16 @@ public class gamePage extends titlePage {
 					dealerHand.add(takeCard(deck));
 				}	else if (addCards(dealerHand) == 21) {
 					//go to gameOver page and dealer wins
+					gameOver_DealerWins winnerDealer = new gameOver_DealerWins();
+					winnerDealer.setVisible(true);
 				}	else if (addCards(dealerHand) > 21) {
 					//go to gameOver page and player wins
+					gameOver_PlayerWins winnerPlayer = new gameOver_PlayerWins();
+					winnerPlayer.setVisible(true);
 				}	else {
 					//code for comparing dealerHand and playerHand-- will add later (bryan)
 					//send to gameOver screen
 				}
-				gameOver end = new gameOver();
-				end.setVisible(true);
 			}
 		});
 		
