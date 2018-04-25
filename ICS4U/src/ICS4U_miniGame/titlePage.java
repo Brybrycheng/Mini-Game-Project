@@ -78,11 +78,32 @@ public class titlePage extends JFrame {
 		}
 		return total;
 	}
+	
+	//comparing player and dealer hand
+	public static int comparer(ArrayList<Integer> playerHand, ArrayList<Integer> dealerHand) {
+		int playerTotal = 0;
+		int dealerTotal = 0;
+		
+		for (int i = 0; i < playerHand.size(); i ++) {
+			playerTotal += playerHand.get(i);
+		}
+		for (int n = 0; n < dealerHand.size(); n ++) {
+			dealerTotal += dealerHand.get(n);
+		}
+		
+		if (playerTotal > dealerTotal) {
+			//player wins
+			return 1;
+		}	else {
+			//dealer wins
+			return 0;
+		}
+	}
 
+	
 	/**
 	 * Create the frame.
 	 */
-	
 	
 	
 	public titlePage() {
@@ -116,9 +137,8 @@ public class titlePage extends JFrame {
 		nameField = new JTextField();
 		nameField.setColumns(10);
 		
-		
+		//instructions to play the game
 		JTextArea txtrInstructions = new JTextArea();
-		//instructions
 		txtrInstructions.append("The goal is to get as close to 21 as possible without exceeding it. \n \n");	
 		txtrInstructions.append("All cards are worth their face value, except for aces which are worth 1\n");
 		txtrInstructions.append("and face cards which are all worth 10 \n \n");

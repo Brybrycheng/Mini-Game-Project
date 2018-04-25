@@ -56,8 +56,8 @@ public class gamePage extends titlePage {
 			playerTxt.append("You have a " + playerHand.get(i) + "\n");
 		}
 		
-		gameOver_DealerWins winnerDealer = new gameOver_DealerWins();
-		gameOver_PlayerWins winnerPlayer = new gameOver_PlayerWins();
+		DealerWins dealerWins = new DealerWins();
+		PlayerWins playerWins = new PlayerWins();
 		
 		//hit button
 		JButton btnHit = new JButton("Hit");
@@ -66,7 +66,7 @@ public class gamePage extends titlePage {
 				playerHand.add(takeCard(deck));
 				if (addCards(playerHand) > 21) {
 					//gameOver page, player loses
-					winnerDealer.setVisible(true);
+					dealerWins.setVisible(true);
 				}
 			}
 		});
@@ -75,19 +75,32 @@ public class gamePage extends titlePage {
 		JButton btnStay = new JButton("Stay");
 		btnStay.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//dealer turn starts
-				if (addCards(dealerHand) < 16) {
-					dealerHand.add(takeCard(deck));
-				}	else if (addCards(dealerHand) == 21) {
-					//go to gameOver page and dealer wins
-					winnerDealer.setVisible(true);
-				}	else if (addCards(dealerHand) > 21) {
-					//go to gameOver page and player wins
-					winnerPlayer.setVisible(true);
-				}	else {
-					//code for comparing dealerHand and playerHand-- will add later (bryan)
-					//send to gameOver screen
-				}
+				boolean y = false;
+				while (y == false) {
+					if (addCards(dealerHand) < 16) {
+						dealerHand.add(takeCard(deck));
+					}	else if (addCards(dealerHand) == 21) {
+						//dealer wins 
+						dealerTxt.setText("");
+						playerTxt.setText("");
+						dealerWins.setVisible(true);						
+					}	else if (addCards(dealerHand) > 21) {
+						//player wins
+						dealerTxt.setText("");
+						playerTxt.setText("");
+						playerWins.setVisible(true);
+					}	else {
+						dealerTxt.setText("");
+						playerTxt.setText("");
+						if (comparer(playerHand, dealerHand) == 0) {
+							dealerWins.setVisible(true);
+						}	else if (comparer(playerHand, dealerHand) == 1) {
+							playerWins.setVisible(true);
+						}
+						//code for comparing dealerHand and playerHand-- will add later (bryan)
+						//send to gameOver screen
+					}
+				}			
 			}
 		});
 		
