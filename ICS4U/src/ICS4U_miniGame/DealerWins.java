@@ -38,10 +38,18 @@ public class DealerWins extends gamePage {
 		JButton btnPlayAgain = new JButton("Play Again");
 		btnPlayAgain.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				dealerHand.clear();
 				playerHand.clear();
+				dealerHand.clear();
+				deck.clear();
 				makeCardList(deck);
+				for (int i = 0; i < 2; i ++) {
+					dealerHand.add(takeCard(deck));
+					playerHand.add(takeCard(deck));
+				}
 				closeFrame();
+				
+				playAgain newGame = new playAgain();
+				newGame.setVisible(true);
 			}
 		});
 		
@@ -53,6 +61,8 @@ public class DealerWins extends gamePage {
 		});
 		
 		JTextArea textArea = new JTextArea();
+		textArea.append("The dealer's total is " + addCards(dealerHand) + ". Your total is " + addCards(playerHand) + ". The dealer wins!");
+		
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)

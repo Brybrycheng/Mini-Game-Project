@@ -16,7 +16,7 @@ import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class gamePage extends titlePage {
+public class playAgain extends titlePage {
 
 	private JPanel contentPane;
 
@@ -27,7 +27,7 @@ public class gamePage extends titlePage {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					gamePage frame = new gamePage();
+					playAgain frame = new playAgain();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -41,7 +41,7 @@ public class gamePage extends titlePage {
 	 */
 	
 	
-	public gamePage() {
+	public playAgain() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 566, 457);
 		contentPane = new JPanel();
@@ -76,7 +76,7 @@ public class gamePage extends titlePage {
 				while(addCards(dealerHand) < 16) {
 					dealerHand.add(takeCard(deck));
 				}
-				if (addCards(dealerHand) == 21) {
+				if (addCards(dealerHand) ==21) {
 					//the dealer wins
 					playerTxt.setText(null);
 					dealerTxt.setText(null);
