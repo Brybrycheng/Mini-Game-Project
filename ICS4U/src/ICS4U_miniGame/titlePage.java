@@ -32,7 +32,7 @@ public class titlePage extends JFrame {
 	String getName;		
 	private JPanel contentPane;
 	private JTextField nameField;
-
+ 
 	/**
 	 * Launch the application.
 	 */
